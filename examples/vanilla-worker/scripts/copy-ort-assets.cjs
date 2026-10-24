@@ -31,7 +31,7 @@ async function main() {
   }
   await ensureDir(dstDir);
   const entries = await fsp.readdir(srcDir);
-  const wanted = entries.filter((f) => /^ort-wasm.*\.(wasm|jsep\.mjs)$/i.test(f));
+  const wanted = entries.filter((f) => /^ort-wasm.*\.(wasm|mjs)$/i.test(f));
   if (wanted.length === 0) {
     console.warn('[copy-ort-assets] No ort-wasm assets found in dist.');
   }
