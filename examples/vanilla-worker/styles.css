@@ -741,3 +741,29 @@ input::placeholder {
     min-height: 250px;
   }
 }
+
+/* Mobile-first links between the local image and text studios */
+.studio-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.studio-links > span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .studio-links {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .studio-links .btn {
+    display: block;
+    text-align: center;
+    min-height: 44px;
+  }
+}
