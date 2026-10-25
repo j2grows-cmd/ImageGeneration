@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="description" content="Local-first text generation in your browser." />
+    <title>Text Studio — My AI Studio</title>
+    <link rel="stylesheet" href="./chat.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <a class="back-link" href="./index.html">← Image Studio</a>
+        <p class="eyebrow">LOCAL-FIRST AI</p>
+        <h1>Text Studio</h1>
+        <p class="subhead">Write, brainstorm and chat using a model running in your browser.</p>
+      </header>
+
+      <section class="panel">
+        <div class="model-row">
+          <div>
+            <h2>Language model</h2>
+            <p class="muted">Qwen2.5 0.5B Instruct · quantised</p>
+          </div>
+          <span id="gpu-badge" class="badge">Checking WebGPU…</span>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite">Ready to check this browser.</p>
+        <progress id="load-progress" max="100" value="0" hidden></progress>
+        <button id="load-model" class="primary" type="button">Load text model</button>
+        <p class="fineprint">The model is downloaded from its public model host on first use. After downloading, generation runs in this browser; this page does not send prompts to an inference API. Browser cache may be cleared by iOS at any time.</p>
+      </section>
+
+      <section class="panel">
+        <label for="system-prompt">Assistant instructions</label>
+        <textarea id="system-prompt" rows="3">You are a creative, helpful assistant. Follow the user's requested tone, format and style. Be clear about uncertainty.</textarea>
+        <div class="setting-grid">
+          <div>
+            <label for="temperature">Creativity <output id="temperature-value">0.8</output></label>
+            <input id="temperature" type="range" min="0" max="1.5" step="0.1" value="0.8" />
+          </div>
+          <div>
+            <label for="max-tokens">Maximum response length</label>
+            <select id="max-tokens">
+              <option value="128">Short</option>
+              <option value="256" selected>Medium</option>
+              <option value="512">Long</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel conversation-panel">
+        <div class="conversation-heading">
+          <h2>Conversation</h2>
+          <button id="clear-chat" class="secondary" type="button">Clear chat</button>
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <p class="empty-state">Load the model, then send your first message.</p>
+        </div>
+        <label for="user-prompt">Your message</label>
+        <textarea id="user-prompt" rows="3" placeholder="Ask a question, draft something, or explore an idea…"></textarea>
+        <button id="send" class="primary" type="button" disabled>Generate response</button>
+      </section>
+
+      <footer>
+        <p>Runs locally when supported. First-time model downloads require internet access. No model can guarantee every prompt will be followed.</p>
+        <a href="https://github.com/j2grows-cmd/ImageGeneration">View source code</a>
+      </footer>
+    </main>
+    <script type="module" src="./chat.js"></script>
+  </body>
+</html>
