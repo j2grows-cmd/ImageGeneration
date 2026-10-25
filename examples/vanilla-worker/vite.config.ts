@@ -20,6 +20,14 @@ export default defineConfig(({ mode }) => ({
   worker: {
     format: 'es',
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        chat: path.resolve(__dirname, 'chat.html'),
+      },
+    },
+  },
   optimizeDeps: {
     exclude: ['web-txt2img'],
   },
