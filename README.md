@@ -48,6 +48,16 @@ A lightweight, browser‑only JavaScript/TypeScript library that provides a unif
 
 </details>
 
+## Local Text Studio
+
+The vanilla example now includes a separate `chat.html` page using WebLLM with the small `Qwen2.5-0.5B-Instruct-q4f16_1-MLC` model. Open **Text Studio** from the image demo to try it.
+
+- The first run downloads model assets from the model host; an internet connection is required for this initial download.
+- Text prompts and completions are processed in the browser by WebLLM; this app does not call a remote inference API.
+- Chat history is held in page memory and is not persisted by default.
+- WebLLM requires WebGPU. Availability and memory limits vary by browser and device; iOS Safari may not expose the required capability on every supported OS/device combination.
+- The Vite build emits both `index.html` (image generation) and `chat.html` (text generation).
+
 ## Requirements
 
 - Modern WebGPU‑enabled browser (Chrome/Edge 113+, or browsers with WebGPU support) and compatible GPU.
